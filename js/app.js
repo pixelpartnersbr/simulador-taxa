@@ -276,4 +276,26 @@
     });
   }
   trocarModo("comprador");
+
+  /* ---------- taxas salvas no painel (/admin.html) ---------- */
+  // Busca as taxas gravadas pela API. Se não existir nada salvo
+  // (ou em ambiente local), mantém os padrões do js/taxas.js.
+  (async function carregarTaxasSalvas() {
+    try {
+      const r = await fetch("/api/taxas", { cache: "no-store" });
+      if (!r.ok) return;
+      const salvo = await r.json();
+      if (!salvo || !Array.isArray(salvo.tabelas)) return;
+      salvo.tabelas.forEach((t, i) => {
+        if (CONFIG.tabelas[i] && t && t.taxas) {
+          CONFIG.tabelas[i].taxas = { ...CONFIG.tabelas[i].taxas, ...t.taxas };
+        }
+      });
+      if (isFinite(salvo.antecipacao)) CONFIG.antecipacao = salvo.antecipacao;
+      $("notaAntecipacao").textContent = pct(CONFIG.antecipacao);
+      render();
+    } catch (e) {
+      /* sem API — segue com os padrões */
+    }
+  })();
 })();
