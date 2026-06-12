@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de Taxas — Recebimento na Hora</title>
+  <meta name="description" content="Simule quanto você recebe na hora em vendas no débito e crédito parcelado, ou quanto cobrar para receber o valor integral." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="topo">
+    <div class="topo__marca" id="marca">
+      <img id="marcaLogo" alt="" hidden />
+      <span id="marcaNome"></span>
+    </div>
+    <a id="btnWhats" class="topo__whats" target="_blank" rel="noopener" hidden>Falar no WhatsApp</a>
+  </header>
+
+  <main class="painel">
+
+    <section class="controles" aria-label="Parâmetros da simulação">
+
+      <div class="abas" role="tablist" aria-label="Tipo de cálculo">
+        <button class="aba is-ativa" id="abaComprador" role="tab" aria-selected="true" data-modo="comprador">
+          Cálculo Comprador
+          <small>repasse no preço</small>
+        </button>
+        <button class="aba" id="abaLojista" role="tab" aria-selected="false" data-modo="lojista">
+          Cálculo Lojista
+          <small>assumindo o custo</small>
+        </button>
+      </div>
+
+      <div class="campo">
+        <label for="valor" id="rotuloValor">Valor que deseja receber</label>
+        <div class="campo__moeda">
+          <span aria-hidden="true">R$</span>
+          <input id="valor" inputmode="numeric" autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+
+      <div class="campo" id="blocoAcrescimo">
+        <span class="campo__rotulo" id="rotuloAcrescimo">Acréscimo no valor (R0 a R10)</span>
+        <div class="chips" role="radiogroup" aria-labelledby="rotuloAcrescimo" id="chips"></div>
+      </div>
+
+      <p class="resumo" id="resumo" aria-live="polite"></p>
+    </section>
+
+    <section class="recibos" id="recibos" aria-label="Resultado da simulação"></section>
+
+    <p class="nota">
+      Simulação com recebimento na hora (antecipação de <span id="notaAntecipacao"></span> a.m.
+      inclusa nas parcelas). Valores aproximados — confirme as condições vigentes antes de fechar a venda.
+    </p>
+  </main>
+
+  <footer class="rodape">
+    <span id="rodapeNome"></span>
+  </footer>
+
+  <script src="js/taxas.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
