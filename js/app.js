@@ -68,9 +68,6 @@
   function aplicarIdentidade() {
     document.title = CONFIG.nomeEmpresa + " — Simulador de Taxas";
     $("marcaNome").textContent = CONFIG.nomeEmpresa;
-    $("rodapeNome").textContent =
-      CONFIG.nomeEmpresa + " · simulação sem valor contratual";
-    $("notaAntecipacao").textContent = pct(CONFIG.antecipacao);
 
     if (CONFIG.logo) {
       const img = $("marcaLogo");
@@ -292,7 +289,6 @@
         }
       });
       if (isFinite(salvo.antecipacao)) CONFIG.antecipacao = salvo.antecipacao;
-      $("notaAntecipacao").textContent = pct(CONFIG.antecipacao);
       render();
     } catch (e) {
       /* sem API — segue com os padrões */

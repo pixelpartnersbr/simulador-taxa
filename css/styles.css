@@ -274,13 +274,6 @@ body {
 .recibo tr.avista td:last-child  { border-radius: 0 4px 4px 0; padding-right: 6px; }
 
 /* ---------- nota e rodapé ---------- */
-.nota {
-  max-width: 760px;
-  margin: 30px auto 0;
-  font-size: 0.8rem;
-  color: #8d8470;
-  text-align: center;
-}
 .rodape {
   text-align: center;
   padding: 18px;
