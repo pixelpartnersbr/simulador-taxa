@@ -1,18 +1,18 @@
 /* ============================================================
-   IDENTIDADE VISUAL
-   Troque as cores aqui para adequar à marca do cliente.
+   IDENTIDADE VISUAL — PAYMILLES (preto & dourado)
+   Troque as cores aqui se a marca mudar.
    ============================================================ */
 :root {
-  --tinta: #0f1722;          /* fundo geral */
-  --tinta-2: #18232f;        /* superfícies sobre o fundo */
+  --tinta: #0a0a0d;          /* fundo geral (preto PayMilles) */
+  --tinta-2: #141318;        /* superfícies sobre o fundo */
   --papel: #faf8f3;          /* papel do recibo */
-  --papel-sombra: #e7e2d6;
-  --grafite: #1c2733;        /* texto sobre papel */
-  --grafite-fraco: #6b7280;
-  --verde: #16a96b;          /* destaque (valores a receber) */
-  --verde-escuro: #0c7a4c;
-  --areia: #c9c2b2;          /* linhas pontilhadas do recibo */
-  --branco-fosco: #eef1f4;
+  --grafite: #1d1b16;        /* texto sobre papel */
+  --grafite-fraco: #6f6a5e;
+  --ouro: #d8a93e;           /* dourado da marca (destaques) */
+  --ouro-claro: #e8c060;
+  --ouro-escuro: #7c5d12;    /* bronze p/ valores sobre o papel */
+  --areia: #cfc6ae;          /* linhas pontilhadas do recibo */
+  --branco-fosco: #f1efe9;
 
   --f-display: "Archivo", system-ui, sans-serif;
   --f-corpo: "IBM Plex Sans", system-ui, sans-serif;
@@ -26,7 +26,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background:
-    radial-gradient(1200px 500px at 50% -200px, #1b2a3a 0%, transparent 70%),
+    radial-gradient(1200px 500px at 50% -200px, #221c10 0%, transparent 70%),
     var(--tinta);
   color: var(--branco-fosco);
   font-family: var(--f-corpo);
@@ -57,20 +57,22 @@ body {
   font-size: 1.15rem;
   letter-spacing: 0.01em;
 }
-.topo__marca img { height: 38px; width: auto; display: block; }
+.topo__marca img { height: 42px; width: auto; display: block; }
+/* quando há logo, esconde o nome em texto para não duplicar a marca */
+.topo__marca img:not([hidden]) + span { display: none; }
 .topo__whats {
   font-family: var(--f-display);
   font-weight: 700;
   font-size: 0.85rem;
   color: var(--tinta);
-  background: var(--verde);
+  background: var(--ouro);
   text-decoration: none;
   padding: 9px 16px;
   border-radius: 999px;
   white-space: nowrap;
   transition: transform 0.15s ease, background 0.15s ease;
 }
-.topo__whats:hover { background: #1cc07c; transform: translateY(-1px); }
+.topo__whats:hover { background: var(--ouro-claro); transform: translateY(-1px); }
 
 /* ---------- painel ---------- */
 .painel {
@@ -84,7 +86,7 @@ body {
 /* ---------- controles ---------- */
 .controles {
   background: var(--tinta-2);
-  border: 1px solid #243140;
+  border: 1px solid #2a2620;
   border-radius: 18px;
   padding: 22px 22px 18px;
   max-width: 640px;
@@ -103,7 +105,7 @@ body {
   font-size: 0.95rem;
   color: var(--branco-fosco);
   background: transparent;
-  border: 1px solid #2c3a4b;
+  border: 1px solid #383225;
   border-radius: 12px;
   padding: 10px 8px 8px;
   cursor: pointer;
@@ -117,17 +119,17 @@ body {
   font-family: var(--f-corpo);
   font-weight: 400;
   font-size: 0.72rem;
-  color: #8da0b5;
+  color: #a59c87;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.aba:hover { border-color: #41566d; }
+.aba:hover { border-color: var(--ouro); }
 .aba.is-ativa {
-  background: var(--papel);
-  border-color: var(--papel);
-  color: var(--grafite);
+  background: var(--ouro);
+  border-color: var(--ouro);
+  color: var(--tinta);
 }
-.aba.is-ativa small { color: var(--verde-escuro); }
+.aba.is-ativa small { color: #4d3a08; }
 
 .campo { margin-bottom: 18px; }
 .campo label, .campo__rotulo {
@@ -136,23 +138,23 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #93a6bb;
+  color: #b3a98f;
   margin-bottom: 8px;
 }
 .campo__moeda {
   display: flex;
   align-items: center;
   background: var(--tinta);
-  border: 1px solid #2c3a4b;
+  border: 1px solid #383225;
   border-radius: 12px;
   padding: 0 16px;
   transition: border-color 0.15s ease;
 }
-.campo__moeda:focus-within { border-color: var(--verde); }
+.campo__moeda:focus-within { border-color: var(--ouro); }
 .campo__moeda span {
   font-family: var(--f-dados);
   font-size: 1.2rem;
-  color: #7a8da2;
+  color: #8d8470;
   margin-right: 10px;
 }
 .campo__moeda input {
@@ -176,26 +178,26 @@ body {
   font-size: 0.95rem;
   color: var(--branco-fosco);
   background: var(--tinta);
-  border: 1px solid #2c3a4b;
+  border: 1px solid #383225;
   border-radius: 999px;
   padding: 7px 16px;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
-.chip:hover { border-color: #41566d; }
+.chip:hover { border-color: var(--ouro); }
 .chip.is-ativo {
-  background: var(--verde);
-  border-color: var(--verde);
+  background: var(--ouro);
+  border-color: var(--ouro);
   color: var(--tinta);
 }
 
 .resumo {
   margin: 4px 0 0;
   font-size: 0.9rem;
-  color: #93a6bb;
+  color: #b3a98f;
   min-height: 1.4em;
 }
-.resumo strong { color: var(--branco-fosco); font-weight: 600; }
+.resumo strong { color: var(--ouro-claro); font-weight: 600; }
 
 /* ---------- recibos ---------- */
 .recibos {
@@ -210,7 +212,7 @@ body {
   color: var(--grafite);
   border-radius: 4px;
   padding: 22px 22px 30px;
-  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.8);
   position: relative;
   /* borda serrilhada inferior, estilo comprovante térmico */
   -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 9px) no-repeat,
@@ -261,13 +263,13 @@ body {
 .recibo td {
   padding: 7px 0;
   text-align: right;
-  border-bottom: 1px dotted #ddd6c6;
+  border-bottom: 1px dotted #e0d8c2;
   white-space: nowrap;
 }
 .recibo td:first-child { text-align: left; font-weight: 500; }
 .recibo tr:last-child td { border-bottom: none; }
-.recibo td.destaque { font-weight: 600; color: var(--verde-escuro); }
-.recibo tr.avista td { background: #f1ede1; }
+.recibo td.destaque { font-weight: 600; color: var(--ouro-escuro); }
+.recibo tr.avista td { background: #f4eed9; }
 .recibo tr.avista td:first-child { border-radius: 4px 0 0 4px; padding-left: 6px; }
 .recibo tr.avista td:last-child  { border-radius: 0 4px 4px 0; padding-right: 6px; }
 
@@ -276,18 +278,18 @@ body {
   max-width: 760px;
   margin: 30px auto 0;
   font-size: 0.8rem;
-  color: #7a8da2;
+  color: #8d8470;
   text-align: center;
 }
 .rodape {
   text-align: center;
   padding: 18px;
   font-size: 0.78rem;
-  color: #5d6f83;
+  color: #6f6a5e;
 }
 
 /* ---------- acessibilidade / responsivo ---------- */
-:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--ouro); outline-offset: 2px; }
 
 @media (max-width: 560px) {
   .controles { padding: 18px 16px 14px; }

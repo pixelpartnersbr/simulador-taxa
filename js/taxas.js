@@ -1,5 +1,5 @@
 /* ============================================================
-   CONFIGURAÇÃO DO SIMULADOR
+   CONFIGURAÇÃO DO SIMULADOR — PAYMILLES
    ============================================================
    Este é o ÚNICO arquivo que você precisa editar.
 
@@ -20,13 +20,14 @@
 const CONFIG = {
 
   /* ---------- IDENTIDADE ---------- */
-  nomeEmpresa: "Simulador de Taxas",
-  // Caminho ou URL do logo. Deixe "" para mostrar só o nome.
-  logo: "",
-  // WhatsApp para o botão de contato (somente números, com DDI).
-  // Deixe "" para esconder o botão.
-  whatsapp: "5527999999999",
-  mensagemWhatsapp: "Olá! Usei o simulador e quero saber mais sobre as taxas.",
+  nomeEmpresa: "PayMilles",
+  // Logo branco/dourado, direto do site oficial.
+  // Para usar um arquivo local, salve-o na pasta do projeto e
+  // troque por: "assets/logo.png"
+  logo: "https://www.paymilles.com.br/_next/image?url=%2Fassets%2Flogos%2Flogobrancaouro.png&w=384&q=100",
+  // WhatsApp oficial PayMilles (somente números, com DDI).
+  whatsapp: "5527995012178",
+  mensagemWhatsapp: "Olá! Fiz uma simulação no site da Paymilles e quero saber mais.",
 
   /* ---------- TAXAS NEGOCIADAS ---------- */
   // Mesma estrutura da aba "TAXAS" da planilha.
@@ -54,7 +55,11 @@ const CONFIG = {
   ],
 
   // Taxa de antecipação ao mês (recebimento na hora).
-  antecipacao: 0.0141,             // 1,41% a.m.
+  // 0.0143 reproduz EXATAMENTE as taxas publicadas em
+  // paymilles.com.br/taxas (plano BASE).
+  // A planilha original usava 0.0141 — se quiser voltar ao
+  // valor da planilha, basta trocar o número abaixo.
+  antecipacao: 0.0143,             // 1,43% a.m.
 
   /* ---------- OPÇÕES DO SIMULADOR ---------- */
   // Acréscimos disponíveis no "Cálculo Comprador" (R0, R2, R4...).

@@ -1,4 +1,4 @@
-# Simulador de Taxas — Recebimento na Hora
+# Simulador PayMilles — Recebimento na Hora
 
 Site estático que replica a planilha **SIMULADOR Recebimento na hora** com dois modos:
 
